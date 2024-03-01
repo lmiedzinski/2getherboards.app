@@ -1,0 +1,6 @@
+@_2getherBoards.Backend.Api_HostAddress = http://localhost:5246
+
+GET {{_2getherBoards.Backend.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
