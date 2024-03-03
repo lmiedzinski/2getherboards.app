@@ -6,3 +6,4 @@
 | --- | ---------------- |
 | 1   | First solution setup for backend |
 | 2   | Backend project structure prepared |
+| 3   | Frontend devcontainer added |
