@@ -1,0 +1,29 @@
+{
+    "name": "2getherBoardsApp Frontend",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "args": {
+            "VARIANT": "20"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "dbaeumer.vscode-eslint",
+                "coenraads.bracket-pair-colorizer",
+                "esbenp.prettier-vscode",
+                "formulahendry.auto-rename-tag",
+                "christian-kohler.path-intellisense",
+                "humao.rest-client",
+                "mutantdino.resourcemonitor",
+                "steoates.autoimport",
+                "angular.ng-template",
+                "johnpapa.Angular2"
+            ]
+        }
+    },
+    "forwardPorts": [
+        3000
+    ],
+    "remoteUser": "node"
+}
