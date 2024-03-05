@@ -8,3 +8,4 @@
 | 2   | Backend project structure prepared |
 | 3   | Frontend devcontainer added |
 | 4   | Angular app base generated |
+| 5   | Architecture planning |
