@@ -10,3 +10,4 @@
 | 4   | Angular app base generated |
 | 5   | Architecture planning |
 | 6   | UserAccount entity created |
+| 7   | UnitOfWork interface and domain exception base class created |
