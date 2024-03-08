@@ -3,7 +3,7 @@ using TogetherBoardsApp.Backend.Domain.UserAccounts;
 using TogetherBoardsApp.Backend.Domain.UserAccounts.DomainEvents;
 using Xunit;
 
-namespace TogetherBoardsApp.Backend.Domain.UnitTests;
+namespace TogetherBoardsApp.Backend.Domain.UnitTests.UserAccounts;
 
 public class UserAccountCreateTests
 {
