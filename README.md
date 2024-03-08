@@ -11,3 +11,4 @@
 | 5   | Architecture planning |
 | 6   | UserAccount entity created |
 | 7   | UnitOfWork interface and domain exception base class created |
+| 8   | UserAccount basic methods and tests |
