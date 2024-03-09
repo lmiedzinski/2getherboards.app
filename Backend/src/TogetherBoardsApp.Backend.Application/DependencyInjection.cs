@@ -1,5 +1,6 @@
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
+using TogetherBoardsApp.Backend.Application.Behaviors;
 
 namespace TogetherBoardsApp.Backend.Application;
 
@@ -11,8 +12,8 @@ public static class DependencyInjection
         {
             config.RegisterServicesFromAssemblyContaining<ApplicationAssembly>();
 
-            // config.AddOpenBehavior(typeof(LoggingBehavior<,>));
-            // config.AddOpenBehavior(typeof(ValidationBehavior<,>));
+            config.AddOpenBehavior(typeof(LoggingBehavior<,>));
+            config.AddOpenBehavior(typeof(ValidationBehavior<,>));
         });
 
         services.AddValidatorsFromAssembly(ApplicationAssembly.Assembly);
