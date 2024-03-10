@@ -13,3 +13,4 @@
 | 7   | UnitOfWork interface and domain exception base class created |
 | 8   | UserAccount basic methods and tests |
 | 9   | Basic application layer abstractions for cqrs + mediator behaviors for logs and validation |
+| 10  | Added Cryptography and DateTimeProvider services |
