@@ -5,6 +5,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Quartz;
 using Serilog;
+using TogetherBoardsApp.Backend.Application.Abstractions.Cryptography;
+using TogetherBoardsApp.Backend.Application.Abstractions.DateAndTime;
+using TogetherBoardsApp.Backend.Infrastructure.Cryptography;
+using TogetherBoardsApp.Backend.Infrastructure.DateAndTime;
 using TogetherBoardsApp.Backend.Infrastructure.Middlewares;
 using TogetherBoardsApp.Backend.Infrastructure.Swagger;
 
@@ -21,6 +25,9 @@ public static class DependencyInjection
         
         services.AddHttpContextAccessor();
         services.AddHealthChecks();
+        
+        services.AddScoped<ICryptographyService, CryptographyService>();
+        services.AddScoped<IDateTimeProvider, DateTimeProvider>();
         
         services.AddControllers();
     }
