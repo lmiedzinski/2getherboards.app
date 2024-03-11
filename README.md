@@ -14,3 +14,4 @@
 | 8   | UserAccount basic methods and tests |
 | 9   | Basic application layer abstractions for cqrs + mediator behaviors for logs and validation |
 | 10  | Added Cryptography and DateTimeProvider services |
+| 11  | Added base of authentication and authorization |
