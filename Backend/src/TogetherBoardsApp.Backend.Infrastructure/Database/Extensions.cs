@@ -1,0 +1,28 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using TogetherBoardsApp.Backend.Domain.UnitOfWork;
+using TogetherBoardsApp.Backend.Infrastructure.Database.EntityFramework;
+
+namespace TogetherBoardsApp.Backend.Infrastructure.Database;
+
+internal static class Extensions
+{
+    public static IServiceCollection AddDatabase(this IServiceCollection services, IConfiguration configuration)
+    {
+        var connectionString =
+            configuration.GetConnectionString("TogetherBoardsAppDb") ??
+            throw new ArgumentNullException(nameof(configuration));
+        
+        services.AddDbContext<ApplicationDbContext>(options =>
+        {
+            options
+                .UseNpgsql(connectionString)
+                .EnableSensitiveDataLogging();
+        });
+        
+        services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<ApplicationDbContext>());
+        
+        return services;
+    }
+}

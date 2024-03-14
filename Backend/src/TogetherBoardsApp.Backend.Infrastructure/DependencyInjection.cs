@@ -10,6 +10,7 @@ using TogetherBoardsApp.Backend.Application.Abstractions.Cryptography;
 using TogetherBoardsApp.Backend.Application.Abstractions.DateAndTime;
 using TogetherBoardsApp.Backend.Application.Abstractions.Token;
 using TogetherBoardsApp.Backend.Infrastructure.Cryptography;
+using TogetherBoardsApp.Backend.Infrastructure.Database;
 using TogetherBoardsApp.Backend.Infrastructure.DateAndTime;
 using TogetherBoardsApp.Backend.Infrastructure.Middlewares;
 using TogetherBoardsApp.Backend.Infrastructure.Swagger;
@@ -24,6 +25,8 @@ public static class DependencyInjection
         services.Configure<TokenOptions>(configuration.GetSection(TokenOptions.SectionName));
         
         services.AddQuartz();
+        
+        services.AddDatabase(configuration);
         
         services.AddEndpointsApiExplorer();
         services.AddConfiguredSwagger();
