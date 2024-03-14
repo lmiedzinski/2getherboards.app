@@ -17,3 +17,4 @@
 | 11  | Added base of authentication and authorization |
 | 12  | Architecture planning |
 | 13  | LogInUserAccount - first application command added |
+| 14  | Added dbcontext - in progress |
