@@ -18,3 +18,4 @@
 | 12  | Architecture planning |
 | 13  | LogInUserAccount - first application command added |
 | 14  | Added dbcontext - in progress |
+| 15  | Architecture planning |
