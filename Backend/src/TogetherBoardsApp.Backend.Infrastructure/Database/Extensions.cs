@@ -2,7 +2,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TogetherBoardsApp.Backend.Domain.UnitOfWork;
+using TogetherBoardsApp.Backend.Domain.UserAccounts.Repositories;
 using TogetherBoardsApp.Backend.Infrastructure.Database.EntityFramework;
+using TogetherBoardsApp.Backend.Infrastructure.Database.EntityFramework.Repositories;
 
 namespace TogetherBoardsApp.Backend.Infrastructure.Database;
 
@@ -21,7 +23,10 @@ internal static class Extensions
                 .EnableSensitiveDataLogging();
         });
         
+        services.AddScoped<IUserAccountWriteRepository, UserAccountWriteRepository>();
         services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<ApplicationDbContext>());
+        
+        services.AddHostedService<DatabaseInitializer>();
         
         return services;
     }
