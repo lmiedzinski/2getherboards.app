@@ -19,3 +19,4 @@
 | 13  | LogInUserAccount - first application command added |
 | 14  | Added dbcontext - in progress |
 | 15  | Architecture planning |
+| 16  | Continue with the EF configuration |
