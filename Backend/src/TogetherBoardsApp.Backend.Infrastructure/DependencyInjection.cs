@@ -13,6 +13,7 @@ using TogetherBoardsApp.Backend.Infrastructure.Cryptography;
 using TogetherBoardsApp.Backend.Infrastructure.Database;
 using TogetherBoardsApp.Backend.Infrastructure.DateAndTime;
 using TogetherBoardsApp.Backend.Infrastructure.Middlewares;
+using TogetherBoardsApp.Backend.Infrastructure.OutboxPattern;
 using TogetherBoardsApp.Backend.Infrastructure.Swagger;
 using TogetherBoardsApp.Backend.Infrastructure.Token;
 
@@ -23,8 +24,11 @@ public static class DependencyInjection
     public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
         services.Configure<TokenOptions>(configuration.GetSection(TokenOptions.SectionName));
+        services.Configure<OutboxPatternOptions>(configuration.GetSection(OutboxPatternOptions.SectionName));
         
         services.AddQuartz();
+        services.ConfigureOptions<QuartzOptionsSetup>();
+        services.AddQuartzHostedService(options => options.WaitForJobsToComplete = true);
         
         services.AddDatabase(configuration);
         
