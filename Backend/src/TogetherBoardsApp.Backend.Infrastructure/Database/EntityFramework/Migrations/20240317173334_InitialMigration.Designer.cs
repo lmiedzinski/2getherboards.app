@@ -9,10 +9,10 @@ using TogetherBoardsApp.Backend.Infrastructure.Database.EntityFramework;
 
 #nullable disable
 
-namespace TogetherBoardsApp.Backend.Infrastructure.EntityFramework.Migrations
+namespace TogetherBoardsApp.Backend.Infrastructure.Database.EntityFramework.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240316212658_InitialMigration")]
+    [Migration("20240317173334_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />

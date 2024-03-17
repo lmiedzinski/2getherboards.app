@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace TogetherBoardsApp.Backend.Infrastructure.EntityFramework.Migrations
+namespace TogetherBoardsApp.Backend.Infrastructure.Database.EntityFramework.Migrations
 {
     /// <inheritdoc />
     public partial class InitialMigration : Migration

@@ -8,7 +8,7 @@ using TogetherBoardsApp.Backend.Infrastructure.Database.EntityFramework;
 
 #nullable disable
 
-namespace TogetherBoardsApp.Backend.Infrastructure.EntityFramework.Migrations
+namespace TogetherBoardsApp.Backend.Infrastructure.Database.EntityFramework.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
