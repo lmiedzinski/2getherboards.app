@@ -53,6 +53,11 @@ public abstract class BaseTest : IAsyncLifetime
         
         return testUser;
     }
+    
+    protected string GenerateAccessTokenForUser(Guid userAccountId)
+    {
+        return _tokenService.GenerateAccessToken(new UserAccountId(userAccountId));
+    }
 
     public Task InitializeAsync() => Task.CompletedTask;
 

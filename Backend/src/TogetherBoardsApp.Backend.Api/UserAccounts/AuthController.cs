@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TogetherBoardsApp.Backend.Api.UserAccounts.Requests;
 using TogetherBoardsApp.Backend.Application.UserAccounts.LogInUserAccount;
+using TogetherBoardsApp.Backend.Application.UserAccounts.LogOutUserAccount;
 
 namespace TogetherBoardsApp.Backend.Api.UserAccounts;
 
@@ -28,5 +29,17 @@ public class AuthController : ControllerBase
         var result = await _sender.Send(command, cancellationToken);
 
         return Ok(result);
+    }
+    
+    [Authorize]
+    [HttpPost("log-out")]
+    public async Task<IActionResult> LogOut(
+        CancellationToken cancellationToken)
+    {
+        var command = new LogOutUserAccountCommand();
+
+        await _sender.Send(command, cancellationToken);
+
+        return Ok();
     }
 }
