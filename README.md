@@ -22,3 +22,4 @@
 | 16  | Continue with the EF configuration |
 | 16  | Outbox pattern |
 | 17  | Auth controller + first integration e2e test |
+| 18  | Log Out functionality |
