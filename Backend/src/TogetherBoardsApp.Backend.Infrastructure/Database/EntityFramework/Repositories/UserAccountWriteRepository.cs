@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using TogetherBoardsApp.Backend.Application.Abstractions.DateAndTime;
 using TogetherBoardsApp.Backend.Domain.UserAccounts;
 using TogetherBoardsApp.Backend.Domain.UserAccounts.Repositories;
 
@@ -7,10 +8,14 @@ namespace TogetherBoardsApp.Backend.Infrastructure.Database.EntityFramework.Repo
 internal sealed class UserAccountWriteRepository : IUserAccountWriteRepository
 {
     private readonly ApplicationDbContext _dbContext;
+    private readonly IDateTimeProvider _dateTimeProvider;
 
-    public UserAccountWriteRepository(ApplicationDbContext dbContext)
+    public UserAccountWriteRepository(
+        ApplicationDbContext dbContext,
+        IDateTimeProvider dateTimeProvider)
     {
         _dbContext = dbContext;
+        _dateTimeProvider = dateTimeProvider;
     }
 
     public void Add(
@@ -33,5 +38,18 @@ internal sealed class UserAccountWriteRepository : IUserAccountWriteRepository
     {
         return await _dbContext.UserAccounts
             .FirstOrDefaultAsync(x => x.Email == email, cancellationToken: cancellationToken);
+    }
+    
+    public async Task<UserAccount?> GetByActiveRefreshTokenValueAsync(
+        string refreshTokenValue,
+        CancellationToken cancellationToken = default)
+    {
+        return await _dbContext.UserAccounts
+            .FirstOrDefaultAsync(
+                x => x.RefreshToken != null
+                     && x.RefreshToken.IsActive
+                     && x.RefreshToken.ExpirationDateUtc > _dateTimeProvider.UtcNow
+                     && x.RefreshToken.Value == refreshTokenValue,
+                cancellationToken: cancellationToken);
     }
 }

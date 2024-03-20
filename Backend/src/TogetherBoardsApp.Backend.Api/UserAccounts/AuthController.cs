@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using TogetherBoardsApp.Backend.Api.UserAccounts.Requests;
 using TogetherBoardsApp.Backend.Application.UserAccounts.LogInUserAccount;
 using TogetherBoardsApp.Backend.Application.UserAccounts.LogOutUserAccount;
+using TogetherBoardsApp.Backend.Application.UserAccounts.RefreshUserAccountToken;
 
 namespace TogetherBoardsApp.Backend.Api.UserAccounts;
 
@@ -41,5 +42,18 @@ public class AuthController : ControllerBase
         await _sender.Send(command, cancellationToken);
 
         return Ok();
+    }
+    
+    [AllowAnonymous]
+    [HttpPost("refresh-token")]
+    public async Task<IActionResult> RefreshToken(
+        RefreshTokenRequest request,
+        CancellationToken cancellationToken)
+    {
+        var command = new RefreshUserAccountTokenCommand(request.RefreshToken);
+
+        var result = await _sender.Send(command, cancellationToken);
+
+        return Ok(result);
     }
 }

@@ -11,4 +11,8 @@ public interface IUserAccountWriteRepository
     Task<UserAccount?> GetByEmailAsync(
         UserAccountEmail email,
         CancellationToken cancellationToken = default);
+    
+    Task<UserAccount?> GetByActiveRefreshTokenValueAsync(
+        string refreshTokenValue,
+        CancellationToken cancellationToken = default);
 }

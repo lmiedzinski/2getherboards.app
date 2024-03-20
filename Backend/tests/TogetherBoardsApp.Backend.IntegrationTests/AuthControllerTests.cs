@@ -5,6 +5,7 @@ using FluentAssertions;
 using TogetherBoardsApp.Backend.Api.UserAccounts.Requests;
 using TogetherBoardsApp.Backend.Application.UserAccounts.LogInUserAccount;
 using TogetherBoardsApp.Backend.IntegrationTests.TestsSetup;
+using TogetherBoardsApp.Backend.śApplication.UserAccounts.RefreshUserAccountToken;
 using Xunit;
 
 namespace TogetherBoardsApp.Backend.IntegrationTests;
@@ -55,5 +56,29 @@ public class AuthControllerTests : BaseTest
 
         // Assert
         response.StatusCode.Should().Be(HttpStatusCode.OK);
+    }
+    
+    [Fact]
+    public async Task RefreshToken_Returns_RefreshUserAccountTokenResponse_On_Success()
+    {
+        // Arrange
+        const string email = "testuser@email.com";
+        const string name = "Test User";
+        const string password = "testPassword123";
+        
+        var testUser = await CreateTestUserAsync(email, name, password);
+        var accessToken = GenerateAccessTokenForUser(testUser.Id.Value);
+        
+        var request = new RefreshTokenRequest(testUser.RefreshToken!.Value);
+
+        // Act
+        HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+        var response = await HttpClient.PostAsJsonAsync("api/auth/refresh-token", request);
+        var logInUserAccountResponse = await response.Content.ReadFromJsonAsync<RefreshUserAccountTokenResponse>();
+
+        // Assert
+        response.StatusCode.Should().Be(HttpStatusCode.OK);
+        logInUserAccountResponse.Should().NotBeNull();
+        logInUserAccountResponse!.AccessToken.Should().NotBeNullOrWhiteSpace();
     }
 }
