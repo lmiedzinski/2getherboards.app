@@ -23,3 +23,4 @@
 | 16  | Outbox pattern |
 | 17  | Auth controller + first integration e2e test |
 | 18  | Log Out functionality |
+| 19  | Refresh token functionality |
