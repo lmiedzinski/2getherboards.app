@@ -25,3 +25,4 @@
 | 18  | Log Out functionality |
 | 19  | Refresh token functionality |
 | 20  | Architecture planning |
+| 21  | Still architecture planning |
