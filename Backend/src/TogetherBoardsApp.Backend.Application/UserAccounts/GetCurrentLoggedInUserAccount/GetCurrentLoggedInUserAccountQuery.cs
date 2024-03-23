@@ -1,0 +1,5 @@
+using TogetherBoardsApp.Backend.Application.Abstractions;
+
+namespace TogetherBoardsApp.Backend.Application.UserAccounts.GetCurrentLoggedInUserAccount;
+
+public sealed record GetCurrentLoggedInUserAccountQuery : IQuery<GetCurrentLoggedInUserAccountQueryResponse>;

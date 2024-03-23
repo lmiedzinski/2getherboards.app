@@ -1,8 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using TogetherBoardsApp.Backend.Application.Abstractions.UserAccounts;
 using TogetherBoardsApp.Backend.Domain.UnitOfWork;
 using TogetherBoardsApp.Backend.Domain.UserAccounts.Repositories;
+using TogetherBoardsApp.Backend.Infrastructure.Database.Dapper.Repositories;
 using TogetherBoardsApp.Backend.Infrastructure.Database.EntityFramework;
 using TogetherBoardsApp.Backend.Infrastructure.Database.EntityFramework.Repositories;
 using TogetherBoardsApp.Backend.Infrastructure.Database.SqlConnection;
@@ -30,6 +32,7 @@ internal static class Extensions
         services.AddHostedService<DatabaseInitializer>();
         
         services.AddSingleton(_ => new SqlConnectionFactory(connectionString));
+        services.AddScoped<IUserAccountReadService, UserAccountReadService>();
         
         return services;
     }
