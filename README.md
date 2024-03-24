@@ -27,3 +27,4 @@
 | 20  | Architecture planning |
 | 21  | Still architecture planning |
 | 22  | Get current logged in user account |
+| 23  | Application layer unit tests |
