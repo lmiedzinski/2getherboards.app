@@ -29,3 +29,4 @@
 | 22  | Get current logged in user account |
 | 23  | Application layer unit tests |
 | 24  | Architecture planning |
+| 25  | Architecture planning + Sick... |
