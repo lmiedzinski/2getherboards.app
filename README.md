@@ -30,3 +30,4 @@
 | 23  | Application layer unit tests |
 | 24  | Architecture planning |
 | 25  | Architecture planning + Sick... |
+| 26  | Architecture planning + Sick... |
