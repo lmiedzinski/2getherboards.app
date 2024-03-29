@@ -32,3 +32,4 @@
 | 25  | Architecture planning + Sick... |
 | 26  | Architecture planning + Sick... |
 | 27  | Architecture planning + Sick... |
+| 28  | Architecture planning + Sick... |
