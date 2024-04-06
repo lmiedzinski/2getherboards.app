@@ -40,3 +40,5 @@
 | 33  | Architecture planning + Sick... |
 | 34  | Architecture planning + Sick... |
 | 35  | Architecture planning + Sick... |
+| 36  | Lost |
+| 37  | Architecture planning + Sick... |
