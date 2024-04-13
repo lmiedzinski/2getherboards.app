@@ -47,3 +47,4 @@
 | 40  | Architecture planning |
 | 41  | Architecture planning |
 | 42  | Architecture planning |
+| 43  | Architecture planning |
