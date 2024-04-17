@@ -51,3 +51,4 @@
 | 44  | Architecture planning |
 | 45  | Architecture planning |
 | 46  | Architecture planning |
+| 47  | Architecture planning |
